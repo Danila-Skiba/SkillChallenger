@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:skillchallenger/IconTextWidjet.dart';
-import 'package:skillchallenger/appBaseContainer.dart';
+
+import '../ui.dart';
 
 class CustomActionButton extends StatelessWidget {
   const CustomActionButton({

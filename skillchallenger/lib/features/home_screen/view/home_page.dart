@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../ui/ui.dart';
-import '../widgets/widgets.dart';
+import '../home.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.title});
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
             ),
             surfaceTintColor: Colors.transparent,
             elevation: 0,
-            shadowColor: Colors.black.withOpacity(0.8),
+            shadowColor: Colors.black.withValues(alpha: 0.8),
             forceElevated: true,
             backgroundColor: primaryColor,
             pinned: true,
@@ -75,13 +75,7 @@ class HomePage extends StatelessWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
 
           SliverToBoxAdapter(
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 22).copyWith(top: 18),
-              child: Text(
-                "Online meetings today",
-                style: theme.textTheme.bodyLarge?.copyWith(fontSize: 18),
-              ),
-            ),
+            child: _buildTitle("Online meetings today", theme),
           ),
 
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
@@ -89,71 +83,101 @@ class HomePage extends StatelessWidget {
           SliverToBoxAdapter(
             child: SizedBox(
               height: 230,
-              child: ListView.separated(
-                padding: EdgeInsets.symmetric(horizontal: 23),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return OnlineMeetCard(theme: theme);
-                },
-                separatorBuilder: (context, index) => SizedBox(width: 23),
-                itemCount: 10,
-              ),
+              child: _buildOnlineCards(getOnlineMeetCard(context)),
             ),
           ),
 
           SliverToBoxAdapter(
             child: Divider(
-              color: theme.dividerColor.withOpacity(0.2),
+              color: theme.dividerColor.withValues(alpha: 0.2),
               indent: 20,
               endIndent: 20,
             ),
           ),
 
           SliverToBoxAdapter(
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 22).copyWith(top: 18),
-              child: Text(
-                "Online meetings today",
-                style: theme.textTheme.bodyLarge?.copyWith(fontSize: 18),
-              ),
-            ),
+            child: _buildTitle("Offline meetings today", theme),
           ),
 
           SliverToBoxAdapter(child: SizedBox(height: 20)),
 
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 270,
-              child: ListView.separated(
-                padding: EdgeInsets.symmetric(horizontal: 23),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return OflineMeetCard(theme: theme);
-                },
-                separatorBuilder: (context, index) => SizedBox(width: 23),
-                itemCount: 10,
-              ),
+              height: 300,
+              child: _offlineCardBuilder(getOfflineMeetCards(context)),
             ),
           ),
 
           SliverToBoxAdapter(
-            child: SizedBox(
-              height: 270,
-              child: ListView.separated(
-                padding: EdgeInsets.symmetric(horizontal: 23),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return OflineMeetCard(theme: theme);
-                },
-                separatorBuilder: (context, index) => SizedBox(width: 23),
-                itemCount: 10,
-              ),
+            child: Divider(
+              color: theme.dividerColor.withValues(alpha: 0.2),
+              indent: 20,
+              endIndent: 20,
             ),
           ),
+          SliverToBoxAdapter(
+            child: _buildTitle("Recomendation for you", theme),
+          ),
 
-          ///SliverList.builder(itemBuilder: (context, index) => Text('ЧТо-то')),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            sliver: _userCardsBuilder(getUserCards(context)),
+          ),
+          // Add some bottom padding
+          SliverToBoxAdapter(child: SizedBox(height: 20)),
         ],
       ),
+    );
+  }
+
+  SliverGrid _userCardsBuilder(List<UserCard> userCards) {
+    return SliverGrid(
+      delegate: SliverChildBuilderDelegate((context, index) {
+        if (index >= userCards.length) {
+          return null;
+        }
+        return userCards[index];
+      }),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 200 / 380,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 20,
+      ),
+    );
+  }
+
+  ListView _offlineCardBuilder(List<MeetCard> meetCards) {
+    return ListView.separated(
+      padding: EdgeInsets.symmetric(horizontal: 23),
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) {
+        return meetCards[index];
+      },
+      separatorBuilder: (context, index) => SizedBox(width: 23),
+      itemCount: meetCards.length,
+    );
+  }
+
+  Container _buildTitle(String title, ThemeData theme) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 22).copyWith(top: 18),
+      child: Text(
+        title,
+        style: theme.textTheme.bodyLarge?.copyWith(fontSize: 18),
+      ),
+    );
+  }
+
+  ListView _buildOnlineCards(List<MeetCard> meetCards) {
+    return ListView.separated(
+      padding: EdgeInsets.symmetric(horizontal: 23),
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) {
+        return meetCards[index];
+      },
+      separatorBuilder: (context, index) => SizedBox(width: 23),
+      itemCount: meetCards.length,
     );
   }
 }

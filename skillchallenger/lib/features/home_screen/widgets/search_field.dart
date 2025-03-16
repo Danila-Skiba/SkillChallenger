@@ -29,7 +29,7 @@ class searchField extends StatelessWidget {
               'Search...',
               style: TextStyle(
                 fontSize: 16,
-                color: theme.hintColor.withOpacity(0.2),
+                color: theme.hintColor.withValues(alpha: 0.2),
                 fontWeight: FontWeight.w500,
               ),
             ),

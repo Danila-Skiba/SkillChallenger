@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skillchallenger/features/view/home_screen/homePage.dart';
+import 'package:skillchallenger/features/home_screen/view/home_page.dart';
 
 import 'package:skillchallenger/ui/theme/theme.dart';
 
