@@ -1,15 +1,22 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import '../../../ui/ui.dart';
 import '../home.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key, required this.title});
-  final String title;
+@RoutePage()
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
+      extendBody: true,
       backgroundColor: theme.scaffoldBackgroundColor,
       body: CustomScrollView(
         slivers: [

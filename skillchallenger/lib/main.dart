@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:skillchallenger/features/home_screen/view/home_page.dart';
+import 'package:skillchallenger/router/router.dart';
 
 import 'package:skillchallenger/ui/theme/theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const SkillChallengerApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class SkillChallengerApp extends StatefulWidget {
+  const SkillChallengerApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<SkillChallengerApp> createState() => _SkillChallengerAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _SkillChallengerAppState extends State<SkillChallengerApp> {
+  final _router = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'SkillChallenger',
       theme: themeData,
-      home: HomePage(title: 'SkillChallenger'),
+      routerConfig: _router.config(),
     );
   }
 }
