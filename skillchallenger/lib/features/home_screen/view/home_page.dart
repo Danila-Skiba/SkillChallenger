@@ -12,6 +12,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<HobbyCard> hobbies = [
+    englishHobbyCard,
+    yogaHobbyCard,
+    paintingHobbyCard,
+  ];
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -74,66 +80,67 @@ class _HomePageState extends State<HomePage> {
             ),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(68),
-
-              child: searchField(onTap: () {}),
+              child: SearchField(
+                onTap: () {
+                  homeBottomSheet(context);
+                },
+              ),
             ),
           ),
 
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
 
           SliverToBoxAdapter(
-            child: _buildTitle("Online meetings today", theme),
-          ),
-
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
-
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 230,
-              child: _buildOnlineCards(getOnlineMeetCard(context)),
+            child: Column(
+              children: [
+                const SizedBox(height: 16),
+                _buildTitle("Online meetings today", theme),
+                const SizedBox(height: 16),
+                SizedBox(
+                  height: 230,
+                  child: _buildOnlineCards(getOnlineMeetCard(context)),
+                ),
+                Divider(
+                  color: theme.dividerColor.withValues(alpha: 0.2),
+                  indent: 20,
+                  endIndent: 20,
+                ),
+                _buildTitle("Offline meetings today", theme),
+                const SizedBox(height: 20),
+                SizedBox(
+                  height: 300,
+                  child: _offlineCardBuilder(getOfflineMeetCards(context)),
+                ),
+                Divider(
+                  color: theme.dividerColor.withValues(alpha: 0.2),
+                  indent: 20,
+                  endIndent: 20,
+                ),
+                _buildTitle("Recomendation for you", theme),
+                const SizedBox(height: 16),
+              ],
             ),
-          ),
-
-          SliverToBoxAdapter(
-            child: Divider(
-              color: theme.dividerColor.withValues(alpha: 0.2),
-              indent: 20,
-              endIndent: 20,
-            ),
-          ),
-
-          SliverToBoxAdapter(
-            child: _buildTitle("Offline meetings today", theme),
-          ),
-
-          SliverToBoxAdapter(child: SizedBox(height: 20)),
-
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 300,
-              child: _offlineCardBuilder(getOfflineMeetCards(context)),
-            ),
-          ),
-
-          SliverToBoxAdapter(
-            child: Divider(
-              color: theme.dividerColor.withValues(alpha: 0.2),
-              indent: 20,
-              endIndent: 20,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: _buildTitle("Recomendation for you", theme),
           ),
 
           SliverPadding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             sliver: _userCardsBuilder(getUserCards(context)),
           ),
-          // Add some bottom padding
-          SliverToBoxAdapter(child: SizedBox(height: 20)),
+
+          const SliverToBoxAdapter(child: SizedBox(height: 20)),
         ],
       ),
+    );
+  }
+
+  Future<dynamic> homeBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder:
+          (context) =>
+              BaseBottomSheet(child: HomeBottomSheet(hobbies: hobbies)),
     );
   }
 

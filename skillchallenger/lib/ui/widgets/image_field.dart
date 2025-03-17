@@ -11,6 +11,7 @@ class ImageField extends StatelessWidget {
     this.radius = 50,
     this.shadow = false,
     this.borderColor,
+    this.widthBorder = 1,
   });
 
   final String imagePath;
@@ -19,6 +20,7 @@ class ImageField extends StatelessWidget {
   final double radius;
   final bool shadow;
   final Color? borderColor;
+  final double widthBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class ImageField extends StatelessWidget {
     return AppBaseContainer(
       radius: radius,
       shadow: shadow,
+      widthBorder: widthBorder,
       borderColor: borderColor ?? theme.primaryColorDark,
       height: height,
       width: width,

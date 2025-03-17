@@ -1,92 +1,60 @@
 import 'package:flutter/material.dart';
-
 import '../../../ui/ui.dart';
+import '../models/card_models.dart';
 
 class UserCard extends StatelessWidget {
-  const UserCard({
-    super.key,
-    required this.imagePath,
-    required this.name,
-    required this.location,
-    required this.hobbies,
-  });
+  final UserCardData data;
 
-  final String imagePath;
-  final String name;
-  final String location;
-  final List<HobbyCard> hobbies;
+  const UserCard({super.key, required this.data});
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return AppBaseContainer(
-      radius: 10,
-      shadow: true,
-      color: whiteColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ImageField(
-            width: 170,
-            height: 170,
-            imagePath: imagePath,
-            radius: 10,
-            shadow: false,
-            borderColor: Colors.transparent,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8).copyWith(top: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    fontFamily: "Poppins",
-                  ),
-                ),
-
-                Text(
-                  location,
-                  style: theme.textTheme.titleSmall?.copyWith(
-                    color: theme.hintColor,
-                    fontFamily: "Poppins",
-                    fontSize: 12,
-                  ),
-                ),
-              ],
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              data.imagePath,
+              width: double.infinity,
+              height: 200,
+              fit: BoxFit.cover,
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8).copyWith(top: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 35,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ...hobbies.map(
-                          (hobby) => Padding(
-                            padding: EdgeInsets.only(right: 5),
-                            child: IntrinsicWidth(child: hobby),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+          const SizedBox(height: 12),
+          Text(
+            data.name,
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height: 10),
-          Center(
-            child: CustomElevatedButton(
-              onTap: () {},
-              icon: Icons.add,
-              text: "Add",
-            ),
+          const SizedBox(height: 4),
+          Row(
+            children: [
+              Icon(
+                Icons.location_on,
+                size: 16,
+                color: theme.textTheme.bodySmall?.color,
+              ),
+              const SizedBox(width: 4),
+              Text(
+                data.location,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.textTheme.bodySmall?.color,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children:
+                data.hobbies
+                    .map((hobby) => IntrinsicWidth(child: hobby))
+                    .toList(),
           ),
         ],
       ),

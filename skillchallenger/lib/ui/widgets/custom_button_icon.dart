@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillchallenger/ui/widgets/widgets.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
@@ -22,7 +23,7 @@ class CustomIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: AppBaseContainer(
         margin: EdgeInsets.only(
           top: top,
           right: right,
@@ -31,20 +32,23 @@ class CustomIconButton extends StatelessWidget {
         ),
         height: 32,
         width: 32,
-        decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.4),
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
+        radius: 20,
+        shadow: true,
+        color: Colors.black.withValues(alpha: 0.4),
 
-              blurRadius: 3,
-              spreadRadius: 0,
-              offset: Offset(3, 3),
-            ),
-          ],
-        ),
+        // decoration: BoxDecoration(
+        //   color: Colors.black.withValues(alpha: 0.4),
+        //   borderRadius: BorderRadius.circular(20),
+        //   boxShadow: [
+        //     BoxShadow(
+        //       color: Colors.black.withValues(alpha: 0.1),
 
+        //       blurRadius: 3,
+        //       spreadRadius: 0,
+        //       offset: Offset(3, 3),
+        //     ),
+        //   ],
+        // ),
         child: Icon(icon, color: Colors.white, size: 22),
       ),
     );

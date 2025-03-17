@@ -10,14 +10,14 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:skillchallenger/features/account_screen/account_screen.dart'
+import 'package:skillchallenger/features/account_screen/view/account_screen.dart'
     as _i1;
 import 'package:skillchallenger/features/home_screen/view/home_page.dart'
     as _i2;
-import 'package:skillchallenger/features/message_page/message_screen.dart'
+import 'package:skillchallenger/features/message_page/view/message_screen.dart'
     as _i3;
 import 'package:skillchallenger/features/navigation/navigation.dart' as _i4;
-import 'package:skillchallenger/features/settings_page/settings_screen.dart'
+import 'package:skillchallenger/features/settings_page/view/settings_screen.dart'
     as _i5;
 
 /// generated route for

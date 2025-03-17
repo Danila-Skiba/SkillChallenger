@@ -18,6 +18,13 @@ final themeData = ThemeData(
       fontFamily: 'Poppins',
     ),
 
+    titleLarge: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
+      fontFamily: "Poppins",
+    ),
+
     bodyMedium: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w600,

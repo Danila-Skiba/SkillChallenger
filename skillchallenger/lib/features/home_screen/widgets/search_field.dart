@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
-class searchField extends StatelessWidget {
-  const searchField({super.key, required this.onTap});
+import '../../../ui/ui.dart';
+
+class SearchField extends StatelessWidget {
+  const SearchField({super.key, required this.onTap});
 
   final VoidCallback onTap;
 
@@ -11,16 +12,16 @@ class searchField extends StatelessWidget {
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: AppBaseContainer(
+        color: backgroundIconColor,
+        shadow: false,
+        height: 48,
+        radius: 16,
         width: double.infinity,
         margin: const EdgeInsets.symmetric(
           horizontal: 30,
         ).copyWith(bottom: 10, top: 10),
         padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: theme.scaffoldBackgroundColor,
-          borderRadius: BorderRadius.circular(16),
-        ),
         child: Row(
           children: [
             const Icon(Icons.search_rounded, color: Colors.grey),
