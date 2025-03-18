@@ -14,6 +14,7 @@ class AppBaseContainer extends StatelessWidget {
     this.radius = 10,
     this.widthBorder = 2,
     this.leftcorner = false,
+    this.clipBehavior = Clip.none,
   });
   final double? height;
   final Color? color;
@@ -26,6 +27,7 @@ class AppBaseContainer extends StatelessWidget {
   final double radius;
   final double widthBorder;
   final bool leftcorner;
+  final Clip clipBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +37,10 @@ class AppBaseContainer extends StatelessWidget {
       margin: margin,
       padding: padding,
       height: height,
-
+      clipBehavior: clipBehavior,
       decoration: BoxDecoration(
         color: color ?? theme.cardColor,
+
         borderRadius:
             leftcorner
                 ? BorderRadius.only(

@@ -75,7 +75,11 @@ class _HomePageState extends State<HomePage> {
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(68),
 
-              child: searchField(onTap: () {}),
+              child: searchField(
+                onTap: () {
+                  homeBottomSheet(context);
+                },
+              ),
             ),
           ),
 
@@ -134,6 +138,15 @@ class _HomePageState extends State<HomePage> {
           SliverToBoxAdapter(child: SizedBox(height: 20)),
         ],
       ),
+    );
+  }
+
+  Future<dynamic> homeBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) => BaseBottomSheet(child: HomeBottomSheet()),
     );
   }
 
