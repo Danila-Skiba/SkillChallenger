@@ -12,6 +12,9 @@ const Color meetCardColorDarkGreen = Color(0xFF5D8C93);
 const Color meetCardColorLightGreen = Color(0xFFB5ECE9);
 
 // Icon & Text colors
+const Color genderActiveIconColorMen = Color(0xFF69AAFE);
+const Color genderActiveIconColorWomen = Color(0xFFD47979);
+const Color genderActiveIconColorAny = Color(0xFFC4BBF3);
 const Color sportIconColor = Color(0xFF9B6934);
 const Color musicIconColor = Color(0xFF708371);
 const Color borderColor = Color(0xFF708371);

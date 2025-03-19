@@ -3,18 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../ui/ui.dart';
 
 class UserCard extends StatelessWidget {
-  const UserCard({
-    super.key,
-    required this.imagePath,
-    required this.name,
-    required this.location,
-    required this.hobbies,
-  });
+  const UserCard({super.key, required this.user});
 
-  final String imagePath;
-  final String name;
-  final String location;
-  final List<HobbyCard> hobbies;
+  final UserModel user;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -28,7 +19,7 @@ class UserCard extends StatelessWidget {
           ImageField(
             width: 170,
             height: 170,
-            imagePath: imagePath,
+            imagePath: user.imagePath,
             radius: 10,
             shadow: false,
             borderColor: Colors.transparent,
@@ -39,14 +30,14 @@ class UserCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  name,
+                  user.name,
                   style: theme.textTheme.bodySmall?.copyWith(
                     fontFamily: "Poppins",
                   ),
                 ),
 
                 Text(
-                  location,
+                  user.location,
                   style: theme.textTheme.titleSmall?.copyWith(
                     color: theme.hintColor,
                     fontFamily: "Poppins",
@@ -67,7 +58,7 @@ class UserCard extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        ...hobbies.map(
+                        ...user.hobbies.map(
                           (hobby) => Padding(
                             padding: EdgeInsets.only(right: 5),
                             child: IntrinsicWidth(child: hobby),

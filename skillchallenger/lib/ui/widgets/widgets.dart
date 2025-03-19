@@ -7,3 +7,4 @@ export 'image_field.dart';
 export 'custom_elevated_button.dart';
 export 'base_bottom_sheet.dart';
 export 'base_text_field.dart';
+export 'user_model.dart';

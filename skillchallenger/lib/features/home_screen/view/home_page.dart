@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
 
           SliverPadding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-            sliver: _userCardsBuilder(getUserCards(context)),
+            sliver: _userCardsBuilder(getUserCards(context, getUserModels())),
           ),
           // Add some bottom padding
           SliverToBoxAdapter(child: SizedBox(height: 20)),
