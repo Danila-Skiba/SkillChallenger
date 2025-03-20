@@ -10,7 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:skillchallenger/features/account_screen/account_screen.dart'
+import 'package:skillchallenger/features/account_screen/view/account_screen.dart'
     as _i1;
 import 'package:skillchallenger/features/home_screen/view/home_page.dart'
     as _i2;

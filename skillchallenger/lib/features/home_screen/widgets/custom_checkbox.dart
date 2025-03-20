@@ -26,7 +26,7 @@ class CustomCheckBox extends StatelessWidget {
       widthBorder: 2,
       shadow: false,
       borderColor:
-          _selectedGender == checkController ? primaryColorDark : hintTextColor,
+          _selectedGender == checkController ? primaryColor : hintTextColor,
       color: Colors.white,
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       radius: 15,
@@ -53,7 +53,7 @@ class CustomCheckBox extends StatelessWidget {
             style: bodyMedium.copyWith(
               color:
                   _selectedGender == checkController
-                      ? primaryColor
+                      ? Colors.black
                       : hintTextColor,
             ),
           ),

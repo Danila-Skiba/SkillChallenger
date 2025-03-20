@@ -17,8 +17,8 @@ class _NavigationState extends State<Navigation> {
   Widget build(BuildContext context) {
     List<IconData> navIcons = [
       Icons.home_outlined,
-      Icons.people_alt_outlined,
       Icons.account_circle_outlined,
+      Icons.people_alt_outlined,
       Icons.settings_outlined,
     ];
     return Scaffold(

@@ -13,15 +13,12 @@ class HomeBottomSheet extends StatefulWidget {
 class _HomeBottomSheetState extends State<HomeBottomSheet> {
   RangeValues _currentRangeValues = RangeValues(28, 36);
   String _selectedGender = 'male';
-  final List<HobbyCard> hobbies = [
-    sportHobbyCard,
-    englishHobbyCard,
-    photographyHobbyCard,
-    gamingHobbyCard,
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List<SearchUserInfo> searchUserInfo = getSearchUserInfo(
+      context,
+      getUserModels(),
+    );
     final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -47,48 +44,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
           ),
 
           SliverToBoxAdapter(
-            child: Column(
-              children: [
-                Container(
-                  height: 400,
-                  color: Colors.transparent,
-                  child: ListView.separated(
-                    scrollDirection: Axis.vertical,
-                    itemBuilder:
-                        (context, index) => Row(
-                          children: [
-                            SearchUserInfo(
-                              borderColor: colorIconHobbyCardColorKitchen,
-                              user: UserModel(
-                                imagePath:
-                                    "assets/images/images/AdamSmith_full.png",
-                                name: "Adam Smith",
-                                location: "Moscow",
-                                hobbies: [
-                                  chessHobbyCard,
-                                  readingHobbyCard,
-                                  englishHobbyCard,
-                                  musicHobbyCard,
-                                ],
-                                age: 19,
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.add_circle_outline_rounded,
-                                color: primaryColor,
-                                size: 30,
-                              ),
-                            ),
-                          ],
-                        ),
-                    separatorBuilder: (context, index) => SizedBox(height: 21),
-                    itemCount: 6,
-                  ),
-                ),
-              ],
-            ),
+            child: Column(children: [_searchUserInfoBuilder(searchUserInfo)]),
           ),
 
           SliverToBoxAdapter(
@@ -161,6 +117,33 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
     );
   }
 
+  Container _searchUserInfoBuilder(List<SearchUserInfo> searchUserInfo) {
+    return Container(
+      height: 400,
+      color: Colors.transparent,
+      child: ListView.separated(
+        scrollDirection: Axis.vertical,
+        itemBuilder:
+            (context, index) => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                searchUserInfo[index],
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.add_circle_outline_rounded,
+                    color: primaryColor,
+                    size: 30,
+                  ),
+                ),
+              ],
+            ),
+        separatorBuilder: (context, index) => SizedBox(height: 21),
+        itemCount: 6,
+      ),
+    );
+  }
+
   RangeSlider _buildRangeSliderAge() {
     return RangeSlider(
       values: _currentRangeValues,
@@ -211,7 +194,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet> {
         ),
         GestureDetector(
           child: CustomCheckBox(
-            iconData: Icons.people_outline_rounded,
+            iconData: Icons.people_outlined,
             selectedGender: _selectedGender,
             checkController: "any",
             text: "Any",

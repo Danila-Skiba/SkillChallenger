@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 const Color whiteColor = Color(0xFFFFFFFF);
 const Color darkWhiteColor = Color(0xFFF2EDED);
 const Color hintTextColor = Color(0xFFB0AFB1);
+const Color shadowColor = Color.fromRGBO(0, 0, 0, 0.25);
 // Card colors
 const Color meetCardColorBrown = Color(0xFFCFBFC0);
 const Color meetCardColorPurple = Color(0xFFC4BBF3);

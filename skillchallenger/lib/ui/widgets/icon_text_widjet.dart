@@ -10,6 +10,8 @@ class IconTextWidjet extends StatelessWidget {
     this.textSize = 14,
     this.horisontalIconPadding = 8,
     this.mainAxisAlignment = MainAxisAlignment.spaceAround,
+    this.textPadding = 4,
+    this.iconSize = 16,
   });
 
   final IconData? icon;
@@ -19,6 +21,8 @@ class IconTextWidjet extends StatelessWidget {
   final double textSize;
   final double horisontalIconPadding;
   final MainAxisAlignment mainAxisAlignment;
+  final double textPadding;
+  final double iconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +33,11 @@ class IconTextWidjet extends StatelessWidget {
         if (icon != null)
           Padding(
             padding: EdgeInsets.symmetric(horizontal: horisontalIconPadding),
-            child: Icon(icon, color: colorIcon, size: 16),
+            child: Icon(icon, color: colorIcon, size: iconSize),
           ),
         if (text != null)
           Padding(
-            padding: const EdgeInsets.only(right: 8),
+            padding: EdgeInsets.only(right: textPadding),
             child: Text(
               text!,
               style: theme.textTheme.bodyLarge?.copyWith(

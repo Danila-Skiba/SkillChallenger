@@ -33,7 +33,7 @@ class CustomIconButton extends StatelessWidget {
         width: 32,
         decoration: BoxDecoration(
           color: Colors.black.withValues(alpha: 0.4),
-          borderRadius: BorderRadius.circular(20),
+          shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.1),

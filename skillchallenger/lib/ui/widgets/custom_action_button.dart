@@ -12,9 +12,11 @@ class CustomActionButton extends StatelessWidget {
     required this.colorFill,
     required this.colorBorder,
     required this.colorText,
-    required this.colorIcon,
+    this.colorIcon,
     this.icon,
     required this.onTap,
+    this.textPadding = 0,
+    this.shadow = false,
   });
 
   final String text;
@@ -24,23 +26,27 @@ class CustomActionButton extends StatelessWidget {
   final Color colorBorder;
   final double radius;
   final Color colorText;
-  final Color colorIcon;
+  final Color? colorIcon;
   final IconData? icon;
   final Function onTap;
+  final double textPadding;
+  final bool shadow;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => onTap,
       child: AppBaseContainer(
+        padding: EdgeInsets.all(2),
         //margin: EdgeInsets.only(left: 1, top: 5),
         height: height,
         width: width,
         color: colorFill,
         borderColor: colorBorder,
-        shadow: false,
+        shadow: shadow,
 
         child: IconTextWidjet(
+          textPadding: textPadding,
           icon: icon,
           colorIcon: colorIcon,
           text: text,
