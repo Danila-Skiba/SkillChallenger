@@ -1,7 +1,205 @@
 import 'package:flutter/material.dart';
 import '../ui.dart';
 
-const HobbyCard sportHobbyCard = HobbyCard(
+class HobbyCards {
+  static HobbyCard sport({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    text: 'sport',
+    icon: Icon(Icons.sports_basketball),
+    colorIcon: sportIconColor,
+    colorText: sportIconColor,
+    borderColor: borderHobbyCardColorSport,
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard music({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.music_note),
+    text: 'music',
+    borderColor: borderHobbyCardColorMusic,
+    colorIcon: musicIconColor,
+    colorText: musicIconColor,
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard art({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.art_track),
+    text: 'art',
+    borderColor: Color.fromARGB(255, 160, 174, 218),
+    colorIcon: borderHobbyCardColorArt,
+    colorText: borderHobbyCardColorArt,
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard english({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.language),
+    text: 'english',
+    borderColor: borderHobbyCardColorEnglish,
+    colorIcon: iconHobbyCardColorEnglish,
+    colorText: textHobbyCardColorEnglish,
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard kitchen({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.restaurant),
+    text: 'kitchen',
+    borderColor: borderHobbyCardColorKitchen,
+    colorIcon: colorIconHobbyCardColorKitchen,
+    colorText: colorIconHobbyCardColorKitchen,
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard yoga({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.self_improvement),
+    text: 'yoga',
+    borderColor: Color(0xFFB5C8C0),
+    colorIcon: Color(0xFF7A9B8B),
+    colorText: Color(0xFF7A9B8B),
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard photography({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.camera_alt),
+    text: 'photo',
+    borderColor: Color(0xFFD4B5C8),
+    colorIcon: Color(0xFF9B7A8B),
+    colorText: Color(0xFF9B7A8B),
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard reading({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.menu_book),
+    text: 'books',
+    borderColor: Color(0xFFC8B5B5),
+    colorIcon: Color(0xFF8B7A7A),
+    colorText: Color(0xFF8B7A7A),
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard gaming({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.sports_esports),
+    text: 'games',
+    borderColor: Color(0xFFB5C2C8),
+    colorIcon: Color(0xFF7A858B),
+    colorText: Color(0xFF7A858B),
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard travel({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.flight),
+    text: 'travel',
+    borderColor: Color(0xFFC8C4B5),
+    colorIcon: Color(0xFF8B887A),
+    colorText: Color(0xFF8B887A),
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard dance({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.music_note),
+    text: 'dance',
+    borderColor: Color(0xFFB5B8C8),
+    colorIcon: Color(0xFF7A7D8B),
+    colorText: Color(0xFF7A7D8B),
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  /// Создает карточку рисования с опциональным масштабированием
+  static HobbyCard painting({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.palette),
+    text: 'paint',
+    borderColor: Color(0xFFC8B5BE),
+    colorIcon: Color(0xFF8B7A84),
+    colorText: Color(0xFF8B7A84),
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+
+  static HobbyCard chess({
+    double scale = 1.0,
+    double radius = 20,
+    bool shadow = false,
+  }) => HobbyCard(
+    icon: Icon(Icons.extension),
+    text: 'chess',
+    borderColor: Color(0xFFBEC8B5),
+    colorIcon: Color(0xFF848B7A),
+    colorText: Color(0xFF848B7A),
+    scale: scale,
+    shadow: shadow,
+    radius: radius,
+  );
+}
+
+HobbyCard sportHobbyCard = HobbyCard(
   text: 'sport',
   icon: Icon(Icons.sports_basketball),
   colorIcon: sportIconColor,
@@ -9,7 +207,7 @@ const HobbyCard sportHobbyCard = HobbyCard(
   borderColor: borderHobbyCardColorSport,
 );
 
-const HobbyCard musicHobbyCard = HobbyCard(
+HobbyCard musicHobbyCard = HobbyCard(
   icon: Icon(Icons.music_note),
   text: 'music',
   borderColor: borderHobbyCardColorMusic,
@@ -17,14 +215,14 @@ const HobbyCard musicHobbyCard = HobbyCard(
   colorText: musicIconColor,
 );
 
-const HobbyCard artHobbyCard = HobbyCard(
+HobbyCard artHobbyCard = HobbyCard(
   icon: Icon(Icons.art_track),
   text: 'art',
   borderColor: Color.fromARGB(255, 160, 174, 218),
   colorIcon: borderHobbyCardColorArt,
   colorText: borderHobbyCardColorArt,
 );
-const HobbyCard englishHobbyCard = HobbyCard(
+HobbyCard englishHobbyCard = HobbyCard(
   icon: Icon(Icons.language),
   text: 'english',
   borderColor: borderHobbyCardColorEnglish,
@@ -32,7 +230,7 @@ const HobbyCard englishHobbyCard = HobbyCard(
   colorText: textHobbyCardColorEnglish,
 );
 
-const HobbyCard kitchenHobbyCard = HobbyCard(
+HobbyCard kitchenHobbyCard = HobbyCard(
   icon: Icon(Icons.restaurant),
   text: 'kitchen',
   borderColor: borderHobbyCardColorKitchen,
@@ -40,7 +238,7 @@ const HobbyCard kitchenHobbyCard = HobbyCard(
   colorText: colorIconHobbyCardColorKitchen,
 );
 
-const HobbyCard yogaHobbyCard = HobbyCard(
+HobbyCard yogaHobbyCard = HobbyCard(
   icon: Icon(Icons.self_improvement),
   text: 'yoga',
   borderColor: Color(0xFFB5C8C0), // Мягкий зелёный
@@ -48,7 +246,7 @@ const HobbyCard yogaHobbyCard = HobbyCard(
   colorText: Color(0xFF7A9B8B),
 );
 
-const HobbyCard photographyHobbyCard = HobbyCard(
+HobbyCard photographyHobbyCard = HobbyCard(
   icon: Icon(Icons.camera_alt),
   text: 'photo',
   borderColor: Color(0xFFD4B5C8), // Мягкий розовый
@@ -56,7 +254,7 @@ const HobbyCard photographyHobbyCard = HobbyCard(
   colorText: Color(0xFF9B7A8B),
 );
 
-const HobbyCard readingHobbyCard = HobbyCard(
+HobbyCard readingHobbyCard = HobbyCard(
   icon: Icon(Icons.menu_book),
   text: 'books',
   borderColor: Color(0xFFC8B5B5), // Мягкий коричневый
@@ -64,7 +262,7 @@ const HobbyCard readingHobbyCard = HobbyCard(
   colorText: Color(0xFF8B7A7A),
 );
 
-const HobbyCard gamingHobbyCard = HobbyCard(
+HobbyCard gamingHobbyCard = HobbyCard(
   icon: Icon(Icons.sports_esports),
   text: 'games',
   borderColor: Color(0xFFB5C2C8), // Мягкий голубой
@@ -72,7 +270,7 @@ const HobbyCard gamingHobbyCard = HobbyCard(
   colorText: Color(0xFF7A858B),
 );
 
-const HobbyCard travelHobbyCard = HobbyCard(
+HobbyCard travelHobbyCard = HobbyCard(
   icon: Icon(Icons.flight),
   text: 'travel',
   borderColor: Color(0xFFC8C4B5), // Мягкий песочный
@@ -80,7 +278,7 @@ const HobbyCard travelHobbyCard = HobbyCard(
   colorText: Color(0xFF8B887A),
 );
 
-const HobbyCard danceHobbyCard = HobbyCard(
+HobbyCard danceHobbyCard = HobbyCard(
   icon: Icon(Icons.music_note),
   text: 'dance',
   borderColor: Color(0xFFB5B8C8), // Мягкий лавандовый
@@ -88,7 +286,7 @@ const HobbyCard danceHobbyCard = HobbyCard(
   colorText: Color(0xFF7A7D8B),
 );
 
-const HobbyCard paintingHobbyCard = HobbyCard(
+HobbyCard paintingHobbyCard = HobbyCard(
   icon: Icon(Icons.palette),
   text: 'paint',
   borderColor: Color(0xFFC8B5BE), // Мягкий пыльно-розовый
@@ -96,7 +294,7 @@ const HobbyCard paintingHobbyCard = HobbyCard(
   colorText: Color(0xFF8B7A84),
 );
 
-const HobbyCard chessHobbyCard = HobbyCard(
+HobbyCard chessHobbyCard = HobbyCard(
   icon: Icon(Icons.extension),
   text: 'chess',
   borderColor: Color(0xFFBEC8B5), // Мягкий оливковый

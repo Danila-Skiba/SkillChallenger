@@ -54,9 +54,9 @@ class AppBaseContainer extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.15),
 
-              blurRadius: 1.5,
-              spreadRadius: 1,
-              offset: Offset(0, 0),
+              blurRadius: 2,
+              spreadRadius: 2,
+              offset: Offset(0, 1),
             ),
         ],
       ),

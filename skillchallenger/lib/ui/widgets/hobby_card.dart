@@ -8,8 +8,11 @@ class HobbyCard extends StatelessWidget {
     this.borderColor,
     this.colorIcon,
     this.colorText,
+    this.scale = 1.0,
     required this.text,
     required this.icon,
+    this.radius = 20,
+    this.shadow = false,
   });
 
   final Color? borderColor;
@@ -17,23 +20,32 @@ class HobbyCard extends StatelessWidget {
   final Color? colorText;
   final String text;
   final Icon icon;
+  final double radius;
+  final bool shadow;
+
+  /// Коэффициент масштабирования карточки.
+  /// - 1.0 - стандартный размер
+  /// - > 1.0 - увеличение
+  /// - < 1.0 - уменьшение
+  final double scale;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return AppBaseContainer(
-      radius: 20,
-      height: 30,
+      radius: radius,
+      height: 30 * scale,
       borderColor: borderColor ?? theme.primaryColorDark,
       color: theme.scaffoldBackgroundColor,
-      shadow: false,
-      widthBorder: 2,
+      shadow: shadow,
+      widthBorder: 2 * scale,
       child: IconTextWidjet(
         icon: icon.icon,
         colorIcon: colorIcon ?? theme.primaryColor,
         text: text,
-        textSize: 10,
+        textSize: 10 * scale,
         colorText: colorText ?? theme.primaryColor,
+        horisontalIconPadding: 6 * scale,
       ),
     );
   }
