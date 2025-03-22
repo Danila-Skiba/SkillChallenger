@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:skillchallenger/ui/ui.dart';
 import 'dart:async';
 
-import '../../home_screen/home.dart';
 import '../widgets/widgets.dart';
 
 @RoutePage()
@@ -93,83 +92,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
           buildStatistic(),
 
-          SliverToBoxAdapter(
-            child: AppBaseContainer(
-              height: 400,
-              color: whiteColor,
-
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              padding: EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Text(
-                      "About me",
-                      style: theme.textTheme.bodyLarge?.copyWith(
-                        fontSize: 16,
-                        color: primaryColorDark,
-                      ),
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: IntrinsicWidth(child: musicHobbyCard),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      "I've been making music for 6 years. I am the lead singer of a famous band.",
-                      style: theme.textTheme.titleSmall,
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: IntrinsicWidth(child: kitchenHobbyCard),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      "I'm an excellent cook.",
-                      style: theme.textTheme.titleSmall,
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: IntrinsicWidth(child: englishHobbyCard),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      "Philologist of foreign languages by education",
-                      style: theme.textTheme.titleSmall,
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: IntrinsicWidth(child: readingHobbyCard),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      "I love fiction",
-                      style: theme.textTheme.titleSmall,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          SliverToBoxAdapter(child: aboutUser(theme)),
 
           SliverToBoxAdapter(
             child: Divider(
@@ -346,227 +269,19 @@ class _AccountScreenState extends State<AccountScreen> {
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    primaryColor.withOpacity(0.57),
-                    primaryColor.withOpacity(1),
+                    primaryColor.withValues(alpha: 0.57),
+                    primaryColor.withValues(alpha: 1),
                   ],
                   stops: [0.0, 0.5, 0.74],
                 ),
               ),
             ),
-            Positioned(
-              bottom: 160,
-              left: 0,
-              right: 0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  _photos.length,
-                  (index) => AnimatedContainer(
-                    duration: Duration(milliseconds: 300),
-                    width: _currentPage == index ? 24 : 8,
-                    height: 8,
-                    margin: EdgeInsets.symmetric(horizontal: 4),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color:
-                          _currentPage == index
-                              ? Colors.white
-                              : Colors.white.withOpacity(0.5),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            SwipeWidget(photos: _photos, currentPage: _currentPage),
           ],
         ),
       ),
-      title: AnimatedOpacity(
-        opacity: _isCollapsed ? 1.0 : 0.0, // Появление title
-        duration: Duration(milliseconds: 300),
-        child: Center(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.9),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: SizedBox(
-              width: 200,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ImageField(
-                    imagePath: 'assets/images/images/AdamSmith_full.png',
-                    height: 40,
-                    width: 40,
-                  ),
-
-                  Text(
-                    "Adam Smith",
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-      bottom: bottomAppBar(theme),
-    );
-  }
-
-  PreferredSize bottomAppBar(ThemeData theme) {
-    return PreferredSize(
-      preferredSize: Size.fromHeight(_opacity < 0.1 ? 0 : 150.0),
-      child: SizedBox(
-        height: _opacity < 0.1 ? 0 : 150.0,
-        child: AnimatedOpacity(
-          opacity: _opacity,
-          duration: Duration(milliseconds: 150),
-          curve: Curves.easeOutCubic,
-          child: Transform.translate(
-            offset: Offset(0, 20 * (1 - _opacity)),
-            child: Padding(
-              padding: EdgeInsets.all(16.0).copyWith(top: 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    //  mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "Adam Smith",
-                        style: theme.textTheme.titleLarge?.copyWith(
-                          fontSize: 30,
-                          color: whiteColor,
-                        ),
-                      ),
-                      SizedBox(height: 8.0),
-                      Row(
-                        children: [
-                          IconTextWidjet(
-                            icon: Icons.location_on_rounded,
-                            colorIcon: whiteColor,
-                            text: "Omsk",
-                            colorText: whiteColor,
-                            horisontalIconPadding: 2,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 16.0),
-
-                      AppBaseContainer(
-                        shadow: true,
-                        radius: 14,
-                        height: 45,
-                        width: 45,
-                        color: whiteColor,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.favorite_outline_rounded),
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Column(
-                    children: [
-                      CustomElevatedButton2(
-                        theme: theme,
-                        text: "Add",
-                        colorText: primaryColorDark,
-                        icon: Icons.add,
-                        backgroundColor: whiteColor,
-                      ),
-                      SizedBox(height: 16),
-                      CustomElevatedButton2(
-                        theme: theme,
-                        text: "Send",
-                        colorText: primaryColorDark,
-                        icon: Icons.messenger_rounded,
-                        backgroundColor: Color(0xFFB5ECE9),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  ListView _offlineCardBuilder(List<MeetCard> meetCards) {
-    return ListView.separated(
-      padding: EdgeInsets.symmetric(horizontal: 23),
-      scrollDirection: Axis.horizontal,
-      itemBuilder: (context, index) {
-        return meetCards[index];
-      },
-      separatorBuilder: (context, index) => SizedBox(width: 23),
-      itemCount: meetCards.length,
-    );
-  }
-
-  SliverGrid _userCardsBuilder(List<UserCard> userCards) {
-    return SliverGrid(
-      delegate: SliverChildBuilderDelegate((context, index) {
-        if (index >= userCards.length) {
-          return null;
-        }
-        return userCards[index];
-      }),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 200 / 380,
-        crossAxisSpacing: 20,
-        mainAxisSpacing: 20,
-      ),
-    );
-  }
-}
-
-class StatisticCard extends StatelessWidget {
-  const StatisticCard({
-    super.key,
-
-    required this.statistic,
-    required this.label,
-  });
-
-  final String statistic;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return AppBaseContainer(
-      shadow: true,
-      height: 70,
-      width: 100,
-      color: whiteColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            statistic,
-            style: theme.textTheme.bodyLarge?.copyWith(
-              color: primaryColorDark,
-              fontSize: 20,
-            ),
-          ),
-          Text(
-            label,
-            style: theme.textTheme.titleSmall?.copyWith(color: Colors.black),
-          ),
-        ],
-      ),
+      title: CustomAnimatedContainer(isCollapsed: _isCollapsed),
+      bottom: bottomAppBar(theme, _opacity),
     );
   }
 }
