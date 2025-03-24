@@ -9,7 +9,10 @@ class BaseTextField extends StatelessWidget {
     this.width = 330,
     this.hintText = "Search...",
     this.icon,
+    this.child,
   });
+
+  final Widget? child;
 
   final double height;
   final double width;
@@ -27,28 +30,30 @@ class BaseTextField extends StatelessWidget {
         radius: 16,
         margin: const EdgeInsets.symmetric(horizontal: 2).copyWith(bottom: 4),
         padding: EdgeInsets.symmetric(horizontal: 12),
-        child: Row(
-          children: [
-            if (icon != null) icon!,
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: hintText,
-                  hintStyle: TextStyle(color: hintTextColor),
-                  contentPadding: EdgeInsets.only(
-                    bottom: 10,
-                    right: 12,
-                    left: 12,
-                  ),
-                  border: OutlineInputBorder(borderSide: BorderSide.none),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide.none,
+        child:
+            child ??
+            Row(
+              children: [
+                if (icon != null) icon!,
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: hintText,
+                      hintStyle: TextStyle(color: hintTextColor),
+                      contentPadding: EdgeInsets.only(
+                        bottom: 10,
+                        right: 12,
+                        left: 12,
+                      ),
+                      border: OutlineInputBorder(borderSide: BorderSide.none),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-          ],
-        ),
       ),
     );
   }

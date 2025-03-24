@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillchallenger/features/register/view/register_screen.dart';
 import 'package:skillchallenger/router/router.dart';
 
 import 'package:skillchallenger/ui/theme/theme.dart';
@@ -18,11 +19,12 @@ class _SkillChallengerAppState extends State<SkillChallengerApp> {
   final _router = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SkillChallenger',
       theme: themeData,
-      routerConfig: _router.config(),
+      // routerConfig: _router.config(),
+      home: RegisterScreen(),
     );
   }
 }

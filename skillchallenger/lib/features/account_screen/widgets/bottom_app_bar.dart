@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import '../../../ui/ui.dart';
 import 'widgets.dart';
 
-PreferredSize bottomAppBar(ThemeData theme, double _opacity) {
+PreferredSize bottomAppBar(ThemeData theme, double opacity) {
   return PreferredSize(
-    preferredSize: Size.fromHeight(_opacity < 0.1 ? 0 : 150.0),
+    preferredSize: Size.fromHeight(opacity < 0.1 ? 0 : 150.0),
     child: SizedBox(
-      height: _opacity < 0.1 ? 0 : 150.0,
+      height: opacity < 0.1 ? 0 : 150.0,
       child: AnimatedOpacity(
-        opacity: _opacity,
+        opacity: opacity,
         duration: Duration(milliseconds: 150),
         curve: Curves.easeOutCubic,
         child: Transform.translate(
-          offset: Offset(0, 20 * (1 - _opacity)),
+          offset: Offset(0, 20 * (1 - opacity)),
           child: Padding(
             padding: EdgeInsets.all(16.0).copyWith(top: 0),
             child: Row(

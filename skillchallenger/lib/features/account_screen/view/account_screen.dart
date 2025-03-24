@@ -16,9 +16,11 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   late ScrollController _scrollController;
   late PageController _pageController;
+
   late Timer _timer;
   int _currentPage = 0;
   double _opacity = 1.0;
+  double offset = 0;
   static const double _maxScrollExtent = 280.0;
   bool _isCollapsed = false;
   List<HobbyCard> hobbies = [
@@ -63,7 +65,7 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   void _onScroll() {
-    final offset = _scrollController.offset;
+    offset = _scrollController.offset;
     setState(() {
       _opacity = 1.0 - (offset / _maxScrollExtent).clamp(0.0, 1.0);
     });
