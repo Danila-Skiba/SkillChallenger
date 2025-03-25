@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import '../../../ui/ui.dart';
 import '../home.dart';
@@ -63,7 +64,9 @@ class _HomePageState extends State<HomePage> {
                     ),
 
                     CustomIconButton(
-                      onTap: () {},
+                      onTap: () {
+                        context.router.replaceNamed('/');
+                      },
                       icon: Icons.exit_to_app_rounded,
                       top: 14,
                       right: 14,

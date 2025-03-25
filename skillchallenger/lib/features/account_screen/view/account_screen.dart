@@ -278,7 +278,13 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
             ),
-            SwipeWidget(photos: _photos, currentPage: _currentPage),
+            Positioned(
+              bottom: 170,
+              right: 0,
+              left: 0,
+
+              child: SwipeWidget(photos: _photos, currentPage: _currentPage),
+            ),
           ],
         ),
       ),

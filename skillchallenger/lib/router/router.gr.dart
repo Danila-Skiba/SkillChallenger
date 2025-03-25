@@ -9,7 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:skillchallenger/features/account_screen/view/account_screen.dart'
     as _i1;
 import 'package:skillchallenger/features/home_screen/view/home_page.dart'
@@ -17,18 +17,20 @@ import 'package:skillchallenger/features/home_screen/view/home_page.dart'
 import 'package:skillchallenger/features/message_page/view/message_screen.dart'
     as _i3;
 import 'package:skillchallenger/features/navigation/navigation.dart' as _i4;
-import 'package:skillchallenger/features/settings_page/settings_screen.dart'
+import 'package:skillchallenger/features/register/view/register_screen.dart'
     as _i5;
+import 'package:skillchallenger/features/settings_page/settings_screen.dart'
+    as _i6;
 
 /// generated route for
 /// [_i1.AccountScreen]
-class AccountRoute extends _i6.PageRouteInfo<void> {
-  const AccountRoute({List<_i6.PageRouteInfo>? children})
+class AccountRoute extends _i7.PageRouteInfo<void> {
+  const AccountRoute({List<_i7.PageRouteInfo>? children})
     : super(AccountRoute.name, initialChildren: children);
 
   static const String name = 'AccountRoute';
 
-  static _i6.PageInfo page = _i6.PageInfo(
+  static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
       return const _i1.AccountScreen();
@@ -38,13 +40,13 @@ class AccountRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.HomePage]
-class HomeRoute extends _i6.PageRouteInfo<void> {
-  const HomeRoute({List<_i6.PageRouteInfo>? children})
+class HomeRoute extends _i7.PageRouteInfo<void> {
+  const HomeRoute({List<_i7.PageRouteInfo>? children})
     : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
-  static _i6.PageInfo page = _i6.PageInfo(
+  static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
       return const _i2.HomePage();
@@ -54,13 +56,13 @@ class HomeRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.MessageScreen]
-class MessageRoute extends _i6.PageRouteInfo<void> {
-  const MessageRoute({List<_i6.PageRouteInfo>? children})
+class MessageRoute extends _i7.PageRouteInfo<void> {
+  const MessageRoute({List<_i7.PageRouteInfo>? children})
     : super(MessageRoute.name, initialChildren: children);
 
   static const String name = 'MessageRoute';
 
-  static _i6.PageInfo page = _i6.PageInfo(
+  static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
       return const _i3.MessageScreen();
@@ -70,13 +72,13 @@ class MessageRoute extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.Navigation]
-class NavigationRoute extends _i6.PageRouteInfo<void> {
-  const NavigationRoute({List<_i6.PageRouteInfo>? children})
-    : super(NavigationRoute.name, initialChildren: children);
+class Navigation extends _i7.PageRouteInfo<void> {
+  const Navigation({List<_i7.PageRouteInfo>? children})
+    : super(Navigation.name, initialChildren: children);
 
-  static const String name = 'NavigationRoute';
+  static const String name = 'Navigation';
 
-  static _i6.PageInfo page = _i6.PageInfo(
+  static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
       return const _i4.Navigation();
@@ -85,17 +87,33 @@ class NavigationRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.SettingsScreen]
-class SettingsRoute extends _i6.PageRouteInfo<void> {
-  const SettingsRoute({List<_i6.PageRouteInfo>? children})
+/// [_i5.RegisterScreen]
+class RegisterRoute extends _i7.PageRouteInfo<void> {
+  const RegisterRoute({List<_i7.PageRouteInfo>? children})
+    : super(RegisterRoute.name, initialChildren: children);
+
+  static const String name = 'RegisterRoute';
+
+  static _i7.PageInfo page = _i7.PageInfo(
+    name,
+    builder: (data) {
+      return const _i5.RegisterScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [_i6.SettingsScreen]
+class SettingsRoute extends _i7.PageRouteInfo<void> {
+  const SettingsRoute({List<_i7.PageRouteInfo>? children})
     : super(SettingsRoute.name, initialChildren: children);
 
   static const String name = 'SettingsRoute';
 
-  static _i6.PageInfo page = _i6.PageInfo(
+  static _i7.PageInfo page = _i7.PageInfo(
     name,
     builder: (data) {
-      return const _i5.SettingsScreen();
+      return const _i6.SettingsScreen();
     },
   );
 }

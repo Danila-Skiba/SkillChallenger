@@ -5,16 +5,14 @@ import 'package:skillchallenger/router/router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
+    AutoRoute(page: RegisterRoute.page, path: '/'),
     AutoRoute(
-      page: NavigationRoute.page,
-      path: '/',
+      page: Navigation.page,
+      path: '/main',
       children: [
         AutoRoute(page: HomeRoute.page, path: "home"),
-
         AutoRoute(page: MessageRoute.page, path: "messages"),
-
         AutoRoute(page: AccountRoute.page, path: "account"),
-
         AutoRoute(page: SettingsRoute.page, path: "settings"),
       ],
     ),
