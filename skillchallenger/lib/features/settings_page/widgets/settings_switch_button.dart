@@ -19,14 +19,19 @@ class SettingsSwitchButton extends StatelessWidget {
     return SettingsButton(
       title: title,
       trailing: AnimatedSwitcher(
+        
         duration: const Duration(milliseconds: 300),
         child: Switch(
           key: ValueKey<bool>(value),
           value: value,
-          activeColor: primaryColor,
-          inactiveTrackColor: Colors.grey.withOpacity(0.3),
-          activeTrackColor: primaryColor.withOpacity(0.3),
-          trackOutlineColor: MaterialStateProperty.all(Colors.transparent), // Убираем контур
+          thumbIcon: MaterialStateProperty.resolveWith((states) {
+            // Возвращаем пустую иконку фиксированного размера
+            return Icon(Icons.circle, color: Colors.transparent, size: 16);
+          }),
+          inactiveThumbColor: Colors.white,
+          inactiveTrackColor: Colors.grey.withValues(alpha: 0.3),
+          activeTrackColor: Colors.grey.withValues(alpha: 0.3),
+          trackOutlineColor: MaterialStateProperty.all(Colors.transparent), 
           onChanged: onChanged,
         ),
       ),

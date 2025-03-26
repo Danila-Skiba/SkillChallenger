@@ -60,7 +60,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   const SizedBox(height: 106),
                   SettingsSwitchButton(
-                    title: 'Тёмная тема',
+                    title: 'Dark Theme',
                     value: isDarkMode,
                     onChanged: (value) {
                       setState(() {
@@ -68,23 +68,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       });
                     },
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 40),
                   SettingsArrowButton(
-                    title: 'Настройка уведомлений',
+                    title: 'Notifications',
                     onTap: () {
                       // Здесь будет навигация к настройкам уведомлений
                     },
                   ),
                   const SizedBox(height: 16),
                   SettingsArrowButton(
-                    title: 'Язык',
+                    title: 'Language',
                     onTap: () {
                       // Здесь будет навигация к настройкам языка
                     },
                   ),
                   const SizedBox(height: 16),
                   SettingsArrowButton(
-                    title: 'Служба поддержки',
+                    title: 'Support service',
                     onTap: () {
                       // Здесь будет навигация к службе поддержки
                     },

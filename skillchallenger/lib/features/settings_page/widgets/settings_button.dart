@@ -12,7 +12,7 @@ class SettingsButton extends StatelessWidget {
     required this.title,
     this.trailing,
     this.onTap,
-    this.fontSize = 24,
+    this.fontSize = 22,
   });
 
   @override

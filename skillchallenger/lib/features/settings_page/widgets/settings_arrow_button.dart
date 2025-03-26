@@ -16,7 +16,7 @@ class SettingsArrowButton extends StatelessWidget {
     return SettingsButton(
       title: title,
       onTap: onTap,
-      fontSize: 16,
+      fontSize: 22,
       trailing: const Icon(
         Icons.arrow_forward_ios,
         color: Color.fromARGB(255, 12, 82, 82),

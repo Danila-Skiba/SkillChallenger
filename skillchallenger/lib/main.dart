@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillchallenger/features/settings_page/settings_screen.dart';
 import 'package:skillchallenger/router/router.dart';
 
 import 'package:skillchallenger/ui/theme/theme.dart';
