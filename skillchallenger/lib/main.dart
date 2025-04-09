@@ -20,11 +20,12 @@ class _SkillChallengerAppState extends State<SkillChallengerApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp( //.router
       debugShowCheckedModeBanner: false,
       title: 'SkillChallenger',
       theme: themeData,
-      routerConfig: _router.config(),
+      //routerConfig: _router.config(), //раскоммитить
+      home: SettingsScreen() // конкретная страничка
     );
   }
 }

@@ -4,11 +4,13 @@ import 'settings_button.dart';
 class SettingsArrowButton extends StatelessWidget {
   final String title;
   final VoidCallback? onTap;
+  final String leftIcon;
 
   const SettingsArrowButton({
     super.key,
     required this.title,
     this.onTap,
+    required this.leftIcon,
   });
 
   @override
@@ -17,10 +19,15 @@ class SettingsArrowButton extends StatelessWidget {
       title: title,
       onTap: onTap,
       fontSize: 22,
-      trailing: const Icon(
-        Icons.arrow_forward_ios,
-        color: Color.fromARGB(255, 12, 82, 82),
-        size: 20,
+      trailing: Image.asset(
+        'assets/icons/iconsArrowSettings.png',
+        width: 10,
+        height: 16,
+      ),
+      leading: Image.asset(
+        leftIcon,
+        width: 30,
+        height: 30,
       ),
     );
   }

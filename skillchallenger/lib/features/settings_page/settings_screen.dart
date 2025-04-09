@@ -39,7 +39,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             snap: true, //резкое появление
             floating: true, //апбар при прокрутке вверх
 
-            title: Center(
+            /*title: Center(
               child: Text(
                 'Settings',
                 style: theme.textTheme.bodyLarge?.copyWith(
@@ -50,6 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ),
+            */
           ),
 
           SliverToBoxAdapter(
@@ -60,7 +61,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   const SizedBox(height: 106),
                   SettingsSwitchButton(
-                    title: 'Dark Theme',
+                    title: 'Тёмная тема',
                     value: isDarkMode,
                     onChanged: (value) {
                       setState(() {
@@ -70,24 +71,40 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   const SizedBox(height: 40),
                   SettingsArrowButton(
-                    title: 'Notifications',
+                    title: 'Уведомления и звуки',
+                    leftIcon: 'assets/icons/iconnotifications.png',
                     onTap: () {
                       // Здесь будет навигация к настройкам уведомлений
                     },
                   ),
                   const SizedBox(height: 16),
                   SettingsArrowButton(
-                    title: 'Language',
+                    title: 'Язык',
+                    leftIcon: 'assets/icons/iconlanguage.png',
                     onTap: () {
                       // Здесь будет навигация к настройкам языка
                     },
                   ),
                   const SizedBox(height: 16),
                   SettingsArrowButton(
-                    title: 'Support service',
+                    title: 'Служба поддержки',
+                    leftIcon: 'assets/icons/iconSupportService.png',
                     onTap: () {
                       // Здесь будет навигация к службе поддержки
                     },
+                  ),
+
+                  const SizedBox(height: 5),
+                  Center(
+                    child: Text(
+                      'Версия приложения',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: const Color(0xFFD2CECE),
+                        decoration: TextDecoration.underline,
+                        decorationColor: const Color(0xFFD2CECE),
+                      ),
+                    ),
                   ),
                 ],
               ),

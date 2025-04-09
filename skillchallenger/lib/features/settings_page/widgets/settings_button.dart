@@ -4,6 +4,7 @@ import 'package:skillchallenger/ui/ui.dart';
 class SettingsButton extends StatelessWidget {
   final String title;
   final Widget? trailing;
+  final Widget? leading;
   final VoidCallback? onTap;
   final double fontSize;
 
@@ -11,6 +12,7 @@ class SettingsButton extends StatelessWidget {
     super.key,
     required this.title,
     this.trailing,
+    this.leading,
     this.onTap,
     this.fontSize = 22,
   });
@@ -26,22 +28,33 @@ class SettingsButton extends StatelessWidget {
         radius: 15,
         padding: const EdgeInsets.symmetric(horizontal: 7),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 5),
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: fontSize,
-                  fontWeight: FontWeight.bold,
-                  height: 30/24,
-                  color: const Color(0xFF128181),
+            if (leading != null)
+              Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: leading!,
+              ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.bold,
+                    height: 30/24,
+                    color: primaryColorDark,
+                  ),
                 ),
               ),
             ),
-            if (trailing != null) trailing!,
+            if (trailing != null)
+              Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: trailing!,
+              ),
           ],
         ),
       ),
